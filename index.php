@@ -1,5 +1,4 @@
 <?php
-// 1. Array multidimensi mata kuliah (nama, sks, nilai 0-100)
 $matkul = [
     ['nama' => 'Algoritma dan Pemrograman', 'sks' => 3, 'nilai' => 88],
     ['nama' => 'Struktur Data',             'sks' => 3, 'nilai' => 76],
@@ -10,7 +9,6 @@ $matkul = [
     ['nama' => 'Statistika',                'sks' => 2, 'nilai' => 35],
 ];
 
-// 2. Fungsi helper: konversi nilai angka ke huruf dan bobot
 function hitungBobot($nilai)
 {
     if ($nilai >= 85) {
@@ -26,7 +24,6 @@ function hitungBobot($nilai)
     }
 }
 
-// Proses data: hitung huruf, bobot, status, dan total untuk IPS
 $totalSks   = 0;
 $totalMutu  = 0;
 $jmlLulus   = 0;
@@ -46,10 +43,8 @@ foreach ($matkul as $i => $mk) {
     $status === 'LULUS' ? $jmlLulus++ : $jmlUlang++;
 }
 
-// 5. Ringkasan IPS
 $ips = $totalSks > 0 ? $totalMutu / $totalSks : 0;
 
-// 6. Batas maksimal SKS semester depan
 $maxSks = $ips >= 3.00 ? 24 : 20;
 ?>
 <!DOCTYPE html>
@@ -105,7 +100,6 @@ $maxSks = $ips >= 3.00 ? 24 : 20;
     <h1>Kartu Hasil Studi</h1>
     <p class="sub">Daftar nilai mata kuliah semester ini</p>
 
-    <!-- 3 & 4. Tabel nilai, baris MENGULANG berwarna merah -->
     <table>
         <thead>
             <tr>
@@ -142,7 +136,6 @@ $maxSks = $ips >= 3.00 ? 24 : 20;
         </tfoot>
     </table>
 
-    <!-- 5. Ringkasan IPS -->
     <h2 style="margin-top:28px;font-size:18px;">Ringkasan IPS</h2>
     <div class="ringkasan">
         <div class="kartu utama">
@@ -163,7 +156,6 @@ $maxSks = $ips >= 3.00 ? 24 : 20;
         </div>
     </div>
 
-    <!-- 6. Batas maksimal SKS semester depan -->
     <div class="info">
         IPS kamu <strong><?= number_format($ips, 2) ?></strong>
         (<?= $ips >= 3.00 ? '&ge; 3.00' : '&lt; 3.00' ?>), sehingga semester depan
